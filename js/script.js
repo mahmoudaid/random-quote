@@ -8,6 +8,8 @@
 // when user clicks anywhere on the button, the "printQuote" function is called.
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
+var timeOut;
+
 /*
 * This function used for get random quote.
 * Add displayCount property in every quote object.
@@ -47,6 +49,9 @@ function getRandomQuote() {
 * And finally call changePageBackground function.
 */
 function printQuote() {
+	// Clear Timeout
+	clearTimeout(timeOut);
+
 	var quoteBox = document.getElementById("quote-box");
 	var randomQuote = getRandomQuote();
 	var quoteContent = '';
@@ -66,7 +71,8 @@ function printQuote() {
     }
     quoteBox.innerHTML = quoteContent;
     
-    refreshQuote();
+    // Refresh Quote every 30 sec
+   	refreshQuote();
     changePageBackground();
 }
 
@@ -75,9 +81,7 @@ function printQuote() {
 * By calling printQuote function every 30 Sec.
 */
 function refreshQuote() {
-    setTimeout(function(){
-    	printQuote(); 
-    }, 30000);
+    timeOut = window.setTimeout(printQuote, 3000);
 }
 
 /*
