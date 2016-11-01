@@ -71,17 +71,17 @@ function printQuote() {
     }
     quoteBox.innerHTML = quoteContent;
     
-    // Refresh Quote every 20 sec
+    // Refresh Quote every 30 sec
    	refreshQuote();
     changePageBackground();
 }
 
 /*
 * This function used for auto refresh Quote.
-* By calling printQuote function every 20 Sec.
+* By calling printQuote function every 30 Sec.
 */
 function refreshQuote() {
-    timeOut = window.setTimeout(printQuote, 20000);
+    timeOut = window.setTimeout(printQuote, 30000);
 }
 
 /*
